@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusPrática | Consultoria Estratégica & Capacitação Executiva</title>
+    
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A192F',
+                        accent: '#00E5FF',
+                        accentHover: '#00b8cc',
+                        surface: '#F8FAFC',
+                        darkText: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glow-accent {
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.35);
+        }
+        .glass-nav {
+            background: rgba(10, 25, 47, 0.92);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-darkText antialiased selection:bg-accent selection:text-primary">
+
+    <!-- Header / Navegação Fixo -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo Fake NEXOP / NexusPrática -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-accent p-[2px] flex items-center justify-center glow-accent">
+                    <div class="w-full h-full bg-primary rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid fa-gears text-accent text-lg group-hover:rotate-180 transition-transform duration-700"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-xl tracking-wide text-white">NEX<span class="text-accent">OP</span></span>
+                    <span class="text-[10px] tracking-widest text-slate-400 uppercase font-medium">NexusPrática</span>
+                </div>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#sobre" class="text-sm font-medium text-slate-300 hover:text-accent transition-colors">Sobre Nós</a>
+                <a href="#solucoes" class="text-sm font-medium text-slate-300 hover:text-accent transition-colors">Soluções & Cursos</a>
+                <a href="#metodologia" class="text-sm font-medium text-slate-300 hover:text-accent transition-colors">Metodologia</a>
+                <a href="#beneficios" class="text-sm font-medium text-slate-300 hover:text-accent transition-colors">Diferenciais</a>
+            </nav>
+
+            <!-- CTA Header -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#contato" class="px-5 py-2.5 rounded-lg bg-accent text-primary font-heading font-bold text-sm hover:bg-accentHover transition-all shadow-lg glow-accent transform hover:-translate-y-0.5">
+                    Falar com Consultor
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#sobre" class="block text-slate-300 hover:text-accent font-medium py-1 mobile-link">Sobre Nós</a>
+            <a href="#solucoes" class="block text-slate-300 hover:text-accent font-medium py-1 mobile-link">Soluções & Cursos</a>
+            <a href="#metodologia" class="block text-slate-300 hover:text-accent font-medium py-1 mobile-link">Metodologia</a>
+            <a href="#beneficios" class="block text-slate-300 hover:text-accent font-medium py-1 mobile-link">Diferenciais</a>
+            <div class="pt-4">
+                <a href="#contato" class="block text-center w-full py-3 rounded-lg bg-accent text-primary font-heading font-bold text-sm shadow-lg mobile-link">
+                    Falar com Consultor
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section (Primeira Dobra) -->
+        <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-primary text-white overflow-hidden">
+            <!-- Background Glow Effects -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Coluna de Textos do Hero -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/60 text-accent text-xs font-semibold uppercase tracking-wider">
+                            <i class="fa-solid fa-bolt text-accent"><span> Consultoria Estratégica & Capacitação Executiva</span></i>
+                        </div>
+                        
+                        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                            Transforme <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">20 anos de experiência</span> em vantagem competitiva real.
+                        </h1>
+                        
+                        <p class="text-slate-300 text-lg sm:text-xl font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Unimos a vivência prática do chão de fábrica e o rigor metodológico educacional para otimizar processos, capacitar equipes e acelerar o crescimento baseados em dados, sem achismos.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#contato" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-accent text-primary font-heading font-bold text-base hover:bg-accentHover transition-all shadow-xl glow-accent flex items-center justify-center gap-3 group">
+                                <span>Agende Diagnóstico Gratuito</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="#solucoes" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-heading font-semibold text-base transition-all flex items-center justify-center gap-2">
+                                <span>Conhecer Soluções</span>
+                            </a>
+                        </div>
+
+                        <!-- Mini Indicadores de Autoridade -->
+                        <div class="pt-8 grid grid-cols-3 gap-6 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+                            <div>
+                                <span class="block font-heading font-bold text-2xl text-accent">+20 Anos</span>
+                                <span class="text-xs text-slate-400">Vivência Setorial</span>
+                            </div>
+                            <div>
+                                <span class="block font-heading font-bold text-2xl text-accent">100%</span>
+                                <span class="text-xs text-slate-400">Foco em ROI & Lean</span>
+                            </div>
+                            <div>
+                                <span class="block font-heading font-bold text-2xl text-accent">Prática</span>
+                                <span class="text-xs text-slate-400">Sem Teoria Vazia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna de Elemento Visual de Apoio -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <!-- Card flutuante simulando Dashboard Analítico & Operação -->
+                            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-2xl relative z-10 backdrop-blur-md">
+                                <div class="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                    </div>
+                                    <span class="text-xs text-slate-400 font-mono">NEXOP_SYSTEMS.exec</span>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50 flex items-center justify-between">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent">
+                                                <i class="fa-solid fa-chart-line"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-sm font-semibold text-white">Análise de Dados & BI</h4>
+                                                <p class="text-xs text-slate-400">Tomada de decisão preditiva</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">+42% Eficiência</span>
+                                    </div>
+                                    <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50 flex items-center justify-between">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400">
+                                                <i class="fa-solid fa-industry"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-sm font-semibold text-white">Gestão da Qualidade & Lean</h4>
+                                                <p class="text-xs text-slate-400">Redução drástica de desperdícios</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-xs font-bold text-accent bg-accent/10 px-2.5 py-1 rounded-full">Validação Real</span>
+                                    </div>
+                                    <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50 flex items-center justify-between">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400">
+                                                <i class="fa-solid fa-users-gear"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-sm font-semibold text-white">Capacitação Executiva</h4>
+                                                <p class="text-xs text-slate-400">Alinhamento de equipes e OKRs</p>
+                                            </div>
+                                        </div>
+                                        <span class="text-xs font-bold text-purple-300 bg-purple-500/10 px-2.5 py-1 rounded-full">Alta Performance</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Background glow decoration behind the box -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-accent to-blue-600 rounded-2xl blur-lg opacity-30 -z-10"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Quem Somos / Nossa Autoridade -->
+        <section id="sobre" class="py-24 bg-surface relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center space-y-4">
+                    <span class="text-accent font-heading font-bold text-sm tracking-wider uppercase">Nossa Autoridade & Origem</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-primary">
+                        A teoria é importante. A prática no mundo real é o que traz o resultado.
+                    </h2>
+                    <p class="text-slate-600 text-lg leading-relaxed pt-2">
+                        O mercado mudou, mas os desafios de eficiência, qualidade e gestão continuam exigindo casca grossa e método. Com mais de <strong class="text-primary font-semibold">20 anos de vivência combinada nos setores educacional e fabril/industrial</strong>, nossa fundação nasceu para eliminar o abismo entre o planejamento teórico e a operação diária. Não entregamos apenas relatórios engavetados; capacitamos sua liderança e transformamos sua operação de ponta a ponta.
+                    </p>
+                </div>
+
+                <!-- Grid de Destaques de Autoridade -->
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-xl bg-primary text-accent flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-primary mb-3">Vivência de Chão de Fábrica</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Experiência real em ambientes industriais complexos onde cada segundo e cada centavo de processo contam para a margem operacional.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-xl bg-primary text-accent flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-primary mb-3">Rigor Metodológico</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Mais de duas décadas aplicando pedagogias corporativas de excelência, transformando conceitos complexos em treinamentos de alto impacto e assimilação.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-xl bg-primary text-accent flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-primary mb-3">Foco Absoluto em ROI</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Trabalhamos com indicadores de desempenho claros e direcionados ao retorno financeiro e ganho de produtividade mensurável desde o primeiro mês.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Nossas Soluções & Cursos (Grid de 5 Pilares) -->
+        <section id="solucoes" class="py-24 bg-slate-100/70 border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                    <span class="text-accent font-heading font-bold text-sm tracking-wider uppercase">Soluções Integradas</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-primary">
+                        Soluções estruturadas para impulsionar sua empresa e sua equipe
+                    </h2>
+                    <p class="text-slate-600 text-lg">
+                        Capacitação executiva de alto nível e consultoria sob medida para cada engrenagem do seu negócio.
+                    </p>
+                </div>
+
+                <!-- Grid de Cards (5 Pilares) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary group-hover:bg-accent group-hover:text-primary flex items-center justify-center text-xl mb-6 transition-colors">
+                                <i class="fa-solid fa-medal"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-primary mb-3">Gestão da Qualidade & Processos</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Implementação de melhoria contínua, ferramentas Lean e controle de qualidade rigoroso para eliminar desperdícios e elevar o padrão operacional.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-primary">
+                            <i class="fa-solid fa-check text-accent"></i> <span>Cursos & Consultoria In Loco</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary group-hover:bg-accent group-hover:text-primary flex items-center justify-center text-xl mb-6 transition-colors">
+                                <i class="fa-solid fa-handshake-angle"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-primary mb-3">Experiência do Cliente (CX)</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Estratégias focadas em jornada do cliente para B2B e B2C, aumentando a retenção, o LTV e a satisfação real dos seus consumidores.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-primary">
+                            <i class="fa-solid fa-check text-accent"></i> <span>Mapeamento de Jornada</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary group-hover:bg-accent group-hover:text-primary flex items-center justify-center text-xl mb-6 transition-colors">
+                                <i class="fa-solid fa-chess"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-primary mb-3">Planejamento Estratégico</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Alinhamento de metas corporativas, desdobramento via OKRs e foco absoluto na execução para tirar o plano do papel com assertividade.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-primary">
+                            <i class="fa-solid fa-check text-accent"></i> <span>Metas e OKRs Alinhados</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary group-hover:bg-accent group-hover:text-primary flex items-center justify-center text-xl mb-6 transition-colors">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-primary mb-3">Análise de Dados & BI</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Transforme dados brutos em decisões seguras. Estruturação de indicadores-chave (KPIs) e inteligência de negócio orientada a performance.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-primary">
+                            <i class="fa-solid fa-check text-accent"></i> <span>Dashboards & Governança</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 (Destaque Especial) -->
+                    <div class="bg-primary text-white p-8 rounded-2xl border border-slate-800 shadow-xl hover:shadow-2xl transition-all group flex flex-col justify-between lg:col-span-2">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                            <div>
+                                <div class="w-12 h-12 rounded-lg bg-accent text-primary flex items-center justify-center text-xl mb-6">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                </div>
+                                <h3 class="font-heading font-bold text-2xl text-white mb-3">Consultoria Sob Medida</h3>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Diagnóstico profundo in loco e mentoria executiva para desenhar e executar o plano de virada de chave exclusivo que o seu negócio precisa para escalar com segurança.
+                                </p>
+                            </div>
+                            <div class="bg-slate-900/80 p-6 rounded-xl border border-slate-800 space-y-3">
+                                <div class="flex items-center gap-3 text-sm text-slate-300">
+                                    <i class="fa-solid fa-circle-check text-accent"></i>
+                                    <span>Diagnóstico personalizado in loco</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-sm text-slate-300">
+                                    <i class="fa-solid fa-circle-check text-accent"></i>
+                                    <span>Capacitação sob demanda de gestores</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-sm text-slate-300">
+                                    <i class="fa-solid fa-circle-check text-accent"></i>
+                                    <span>Acompanhamento prático da execução</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Nossa Metodologia -->
+        <section id="metodologia" class="py-24 bg-surface relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                    <span class="text-accent font-heading font-bold text-sm tracking-wider uppercase">Passo a Passo Validado</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-primary">
+                        Como transformamos o seu negócio em 4 etapas claras
+                    </h2>
+                    <p class="text-slate-600 text-lg">
+                        Metodologia estruturada para garantir velocidade de entrega sem perder o rigor técnico.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                    
+                    <!-- Passo 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative">
+                        <div class="absolute -top-4 -left-2 w-10 h-10 rounded-xl bg-primary text-accent font-heading font-bold text-lg flex items-center justify-center shadow-md">
+                            01
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-primary mt-3 mb-2">Diagnóstico Profundo</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Mapeamento completo dos gargalos operacionais, lacunas de equipe e oportunidades de receita diretamente na raiz.
+                        </p>
+                    </div>
+
+                    <!-- Passo 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative">
+                        <div class="absolute -top-4 -left-2 w-10 h-10 rounded-xl bg-primary text-accent font-heading font-bold text-lg flex items-center justify-center shadow-md">
+                            02
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-primary mt-3 mb-2">Capacitação de Equipes</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Treinamento direcionado dos times através de cursos práticos alinhados exatamente à realidade do seu negócio.
+                        </p>
+                    </div>
+
+                    <!-- Passo 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative">
+                        <div class="absolute -top-4 -left-2 w-10 h-10 rounded-xl bg-primary text-accent font-heading font-bold text-lg flex items-center justify-center shadow-md">
+                            03
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-primary mt-3 mb-2">Implementação Prática</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Mão na massa conjunta para redesenhar processos, aplicar estratégias de CX e estruturar dados sem atritos.
+                        </p>
+                    </div>
+
+                    <!-- Passo 4 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative">
+                        <div class="absolute -top-4 -left-2 w-10 h-10 rounded-xl bg-primary text-accent font-heading font-bold text-lg flex items-center justify-center shadow-md">
+                            04
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-primary mt-3 mb-2">Monitoramento por Dados</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Acompanhamento contínuo de KPIs e ajustes rápidos para assegurar a sustentabilidade e perenidade dos ganhos.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Benefícios / Prova Social -->
+        <section id="beneficios" class="py-24 bg-primary text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-accent font-heading font-bold text-sm tracking-wider uppercase">Por que nos escolher?</span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold leading-tight">
+                            Linguagem direta com quem decide o futuro do negócio.
+                        </h2>
+                        <p class="text-slate-300 text-lg leading-relaxed">
+                            Sabemos que gestores e diretores não têm tempo para teorias abstratas. Entregamos clareza, método validado e aplicabilidade imediata.
+                        </p>
+                        
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-lg bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-white text-base">Diálogo C-Level Sem Ruídos</h4>
+                                    <p class="text-slate-400 text-sm">Conversamos de igual para igual com diretores, gerentes e donos de empresas.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-lg bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-white text-base">Zero Enrolação Acadêmica</h4>
+                                    <p class="text-slate-400 text-sm">Foco total em aplicabilidade imediata e retorno financeiro mensurável (ROI).</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-lg bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-white text-base">Abordagem Híbrida Única</h4>
+                                    <p class="text-slate-400 text-sm">Mistura o rigor pedagógico do ensino de qualidade com a agilidade exigida pelo chão de fábrica.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6">
+                        <div class="bg-slate-900/90 border border-slate-800 p-8 sm:p-10 rounded-3xl shadow-2xl relative">
+                            <div class="absolute -top-4 right-8 bg-accent text-primary px-4 py-1 rounded-full text-xs font-heading font-bold tracking-wider uppercase">
+                                Garantia de Impacto
+                            </div>
+                            <blockquote class="space-y-6">
+                                <p class="text-slate-200 text-lg sm:text-xl font-medium italic leading-relaxed">
+                                    "A consultoria da NexusPrática uniu a nossa equipe de produção com a diretoria em um objetivo comum. O resultado em otimização de processos e tomada de decisão por dados superou todas as expectativas."
+                                </p>
+                                <div class="flex items-center gap-4 pt-4 border-t border-slate-800">
+                                    <div class="w-12 h-12 rounded-full bg-accent/20 text-accent font-heading font-bold text-lg flex items-center justify-center">
+                                        MS
+                                    </div>
+                                    <div>
+                                        <cite class="not-italic font-heading font-bold text-white block">Diretor de Operações</cite>
+                                        <span class="text-xs text-slate-400">Indústria Metalúrgica & Tecnológica</span>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Formulário de Contato -->
+        <section id="contato" class="py-24 bg-surface relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white border border-slate-200 rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                    
+                    <!-- Lado Esquerdo: Chamada -->
+                    <div class="lg:col-span-5 bg-primary text-white p-8 sm:p-12 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <span class="text-accent font-heading font-bold text-xs uppercase tracking-widest">Contato Direto</span>
+                            <h2 class="font-heading text-2xl sm:text-3xl font-extrabold leading-tight">
+                                Pronto para dar o próximo passo rumo à inovação?
+                            </h2>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Chega de consultorias baseadas em teorias de gaveta. Vamos construir o plano de virada de chave do seu negócio com quem entende de chão de fábrica, educação corporativa e dados.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-8">
+                            <div class="flex items-center gap-3 text-sm text-slate-300">
+                                <div class="w-8 h-8 rounded-lg bg-slate-800 text-accent flex items-center justify-center">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <span>contato@nexuspratica.com.br</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-300">
+                                <div class="w-8 h-8 rounded-lg bg-slate-800 text-accent flex items-center justify-center">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <span>+55 (11) 99999-9999</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lado Direito: Formulário Interativo -->
+                    <div class="lg:col-span-7 p-8 sm:p-12">
+                        <form id="contact-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Nome Completo</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-darkText focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm transition-all" placeholder="Ex: Carlos Alberto">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">E-mail Corporativo</label>
+                                    <input type="email" required class="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-darkText focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm transition-all" placeholder="carlos@suaempresa.com">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Telefone / WhatsApp</label>
+                                    <input type="tel" required class="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-darkText focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm transition-all" placeholder="(11) 98888-8888">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Nome da Empresa</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-darkText focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm transition-all" placeholder="Sua Empresa S.A.">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">Principal Desafio Atual</label>
+                                    <select class="w-full px-4 py-3 rounded-xl bg-surface border border-slate-200 text-darkText focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm transition-all">
+                                        <option>Gestão da Qualidade & Processos</option>
+                                        <option>Experiência do Cliente (CX)</option>
+                                        <option>Planejamento Estratégico & OKRs</option>
+                                        <option>Análise de Dados & BI</option>
+                                        <option>Consultoria Empresarial Sob Medida</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-primary text-white font-heading font-bold text-sm hover:bg-slate-800 transition-all shadow-lg flex items-center justify-center gap-2 group cursor-pointer">
+                                <span>Solicitar Diagnóstico Estratégico</span>
+                                <i class="fa-solid fa-arrow-right text-accent group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+
+                            <!-- Feedback Message Box (No alert()) -->
+                            <div id="form-success" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium text-center">
+                                <i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i> Mensagem enviada com sucesso! Nossos especialistas entrarão em contato em breve.
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <!-- Rodapé Inferior -->
+                <div class="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                    <div class="flex items-center gap-2">
+                        <span class="font-heading font-bold text-primary text-sm">NEX<span class="text-blue-600">OP</span></span>
+                        <span>© 2026 NexusPrática Consultoria. Todos os direitos reservados.</span>
+                    </div>
+                    <div>
+                        <span>CNPJ: 00.000.000/0001-00</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                        <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submit Handler (Custom message box instead of alert())
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successBox = document.getElementById('form-success');
+            const form = document.getElementById('contact-form');
+            
+            successBox.classList.remove('hidden');
+            form.reset();
+
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
